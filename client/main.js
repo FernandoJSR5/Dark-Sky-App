@@ -33,16 +33,6 @@ Template.weather.helpers({
 
 
 Template.weather.events({
-  "click #set": function(e) {
-    var key = $("#key").val();
-    var value = $("#value").val();
-
-    Meteor.call("setRedis", key, value, (err, resp) => {
-      if (err) {
-        Materialize.toast(err, 3000, 'red rounded');
-      }
-    });
-  },
   'change select': function(event, template) {
     event.preventDefault();
     var key = event.target.value;
