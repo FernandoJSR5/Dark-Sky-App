@@ -1,6 +1,6 @@
 ## App Dark Sky
 
-# Framework FullStack MeteorJS
+## Framework FullStack MeteorJS
 
 Instalacion de MeteorJS:
 
@@ -14,38 +14,39 @@ Instalacion de paquetes NPM:
 $ meteor npm install
 ```
 
-# Ejecucion del servidor de la aplicación
+## Ejecucion del servidor de la aplicación
 
 ```
 $ meteor 
+```
 
-# Redis NPM
+## Redis NPM
 
 Para el motor de base de datos en memoria.
 
-# Fibers NPM
+## Fibers NPM
 
 Para el control de las promises de meteor.
 
-# Forecast NPM
+## Forecast NPM
 
 Proporciona una API para múltiples proveedores de tiempo y devuelve los resultados como un objeto normalizado.
 
-# Babel Runtime
+## Babel Runtime
 
 Se usa para transpilar el codigo de la aplicación.
 
-# FrontEnd
+## FrontEnd
 
 Uso de Spacesbars y Materialize para el diseño de la aplicación.
 
-# Reactive Vars y Session Vars
+## Reactive Vars y Session Vars
 
 Las variables de sesión se usan para almacenar datos reactivos en la aplicación y funcionan utilizando pares "clave/valor".
 
 Reactive Vars se destinan para almacenar valores individuales de cualquier tipo en este caso datos locales, específicamente a nivel de cambios en la plantilla.
 
-# Heroku
+## Heroku
 
 https://dark-sky-app.herokuapp.com/
 
