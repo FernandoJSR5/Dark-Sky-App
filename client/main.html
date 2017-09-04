@@ -1,25 +1,127 @@
 <head>
-  <title>Dark Sky App</title>
+    <title>App - Dark Sky</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body>
-  <h1>Welcome to the Dark Sky App</h1>
-
-  {{> tutorial}}
+  {{> navbar}}
+  {{> weather}}
 </body>
 
-<template name="tutorial">
-  <div>
-    Key:<br>
-    <input id="key" type="text" name="key"><br>
-    Value:<br>
-    <input id="value" type="text" name="value">
-    <br>
-    <button id="get">Get</button>
-    <br>
-    <button id="set">Set</button>
+<template name="navbar">
+  <nav>
+    <div class="nav-wrapper cyan darken-3">
+      <a href="#!" class="brand-logo">Dark Sky App</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Created by Fernando Salazar</a></li>
+      </ul>
+    </div>
+  </nav>
+</template>
+
+<template name="weather">
+  <br><br>
+  <div class="container">
+    <div class="row">
+      <div class="col s4">
+        <div class="input-field col s12 l10">
+          <select>
+            <option disabled selected>Choose your option</option>
+            <option value="Santiago">Santiago (CL)</option>
+            <option value="Zurich">Zurich (CH)</option>
+            <option value="Auckland">Auckland (NZ)</option>
+            <option value="Sydney">Sydney (AU)</option>
+            <option value="London">London (UK)</option>
+            <option value="Georgia">Georgia (USA)</option>
+          </select>
+          <label>Select the City</label>
+          <br>
+        </div>
+      </div>
+      <div class="col s8">
+        <div class="col s12 m10">
+          <div class="card horizontal">
+            <div class="card-stacked">
+              {{#unless uploading}}
+              <div class="card-content">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <p for="disabled" class="teal-text text-darken-2">Time Zone: {{timeZone}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <p for="disabled" class="teal-text text-darken-2">Temperature: {{temperature}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <p for="disabled" class="teal-text text-darken-2">Hourly: {{hourly}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <p for="disabled" class="teal-text text-darken-2">Daily: {{daily}}</p>
+                  </div>
+                </div>
+            </div>
+            {{else}}
+            <br><br><br><br>
+              <div class='col offset-l5 offset-m4 offset-s4'>
+               <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+
+                <div class="spinner-layer spinner-red">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+
+                <div class="spinner-layer spinner-yellow">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+
+                <div class="spinner-layer spinner-green">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+              </div>
+             </div>
+             <br><br><br><br>
+             {{/unless}}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div>
-    <label>Get Value: <span id="getValue"></span></label>
-  </div>
+</div>
 </template>

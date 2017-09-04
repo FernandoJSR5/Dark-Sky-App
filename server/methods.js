@@ -17,7 +17,7 @@ var forecast = new Forecast({
 
 Meteor.methods({
   setRedis: function(key, value) {
-    return client.setSync(key, value)
+    return client.setSync(key, JSON.stringify(value))
   },
   getRedis: function(key) {
 
@@ -25,13 +25,13 @@ Meteor.methods({
 
     var coordenates = JSON.parse(client.getSync(key));
 
-    forecast.get(coordenates, function(err, result) {
+    forecast.get(coordenates, function(err, weather) {
       
       if(err) return console.dir(err);
       
       if (Math.random(0, 1) < 0.1) throw new Meteor.Error('How unfortunate! The API Request Failed');
 
-      darkskyObj = {latitude: result.latitude, longitude: result.longitude}
+      darkskyObj = {timezone: weather.timezone, temperature: weather.currently.temperature, hourly: weather.hourly.summary, daily: weather.daily.summary}
 
       future["return"](JSON.stringify(darkskyObj));
 
